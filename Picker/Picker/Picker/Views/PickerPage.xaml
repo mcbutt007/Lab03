@@ -5,7 +5,7 @@
              Title="{Binding Title}"
              xmlns:local="clr-namespace:Picker.ViewModels"  
              xmlns:model="clr-namespace:Picker.Models" 
-             xmlns:material1="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material" 
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material" 
              x:DataType="local:PickerViewModel"
              x:Name="BrowseCitiesPage">
     <!--
@@ -13,7 +13,7 @@
       https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
     -->
     <StackLayout>
-        <material1:MaterialButton BackgroundColor="#EAEAEA" 
+        <material:MaterialButton BackgroundColor="#EAEAEA" 
                                   HorizontalOptions="Center" 
                                   Text="Chọn một đất nước" 
                                   TextColor="Black" 
@@ -23,21 +23,25 @@
         <CollectionView x:Name="CitiesListView"
                 ItemsSource="{Binding Cities}"
                 SelectionMode="None">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout Padding="10" x:DataType="model:City">
-                        <Label Text="{Binding CityId}" 
-                            LineBreakMode="NoWrap" 
-                            Style="{DynamicResource ListItemTextStyle}" 
-                            FontSize="16" />
-                            <Label Text="{Binding CityName}" 
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <material:MaterialCard CornerRadius="2" Elevation="3" 
+                                               HeightRequest="80" HorizontalOptions="FillAndExpand" 
+                                               IsClickable="True" Margin="10"
+                                               Padding="10" x:DataType="model:City">
+                            <StackLayout Padding="10" Orientation="Horizontal">
+                                <Image Source="{Binding CityImage}" Aspect="AspectFill" HeightRequest="80" WidthRequest="120" ></Image>
+                                <Label Text="{Binding CityName}" 
                             LineBreakMode="NoWrap"
                             Style="{DynamicResource ListItemDetailTextStyle}"
-                            FontSize="13" />
-                        </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+                                       Margin="10,0,0,0"
+                                       VerticalOptions="Center"
+                            FontSize="Large" />
+                            </StackLayout>
+                        </material:MaterialCard>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
     </RefreshView>
     </StackLayout>
 </ContentPage>
