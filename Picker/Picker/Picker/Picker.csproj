@@ -10,4 +10,10 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />  
     <PackageReference Include="XF.Material" Version="1.8.0" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\PickerPage.xaml.cs">
+      <DependentUpon>PickerPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>

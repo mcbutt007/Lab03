@@ -11,6 +11,8 @@ namespace Picker.ViewModels
     public class BaseViewModel : INotifyPropertyChanged
     {
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        public ICityDataStore<City> CityDataStore => DependencyService.Get<ICityDataStore<City>>();
+        public ICountryDataStore<Country> CountryDataStore => DependencyService.Get<ICountryDataStore<Country>>();
 
         bool isBusy = false;
         public bool IsBusy

@@ -14,6 +14,8 @@ namespace Picker
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
+            DependencyService.Register<CityDataStore>();
+            DependencyService.Register<CountryDataStore>();
             XF.Material.Forms.Material.Init(this);
             MainPage = new AppShell();
         }
