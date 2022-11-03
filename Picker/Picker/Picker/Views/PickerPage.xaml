@@ -15,7 +15,7 @@
     <StackLayout>
         <material:MaterialButton BackgroundColor="#EAEAEA" 
                                   HorizontalOptions="Center" 
-                                  Text="Chọn một đất nước" 
+                                  Text="{Binding SelectedCountryBtn}" 
                                   TextColor="Black" 
                                   VerticalOptions="Center" 
                                   Command="{Binding LoadPickerCommand}" />

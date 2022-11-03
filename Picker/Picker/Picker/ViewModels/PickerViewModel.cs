@@ -15,6 +15,16 @@ namespace Picker.ViewModels
 {
     public class PickerViewModel : BaseViewModel
     {
+        private string SelectedCountryText;
+        public string SelectedCountryBtn
+        {
+            get { return SelectedCountryText; }
+            set
+            {
+                SelectedCountryText = value;
+                OnPropertyChanged(nameof(SelectedCountryBtn));
+            }
+        }
         public ObservableCollection<City> Cities { get; }
         public ObservableCollection<Country> Countries { get; }
         public Command LoadCitiesCommand { get; }
@@ -25,6 +35,8 @@ namespace Picker.ViewModels
         {
             Title = "Picker";
 
+            SelectedCountryBtn = "Chọn một đất nước";
+
             Cities = new ObservableCollection<City>();
 
             Countries = new ObservableCollection<Country>();
@@ -32,8 +44,6 @@ namespace Picker.ViewModels
             LoadCitiesCommand = new Command(async () => await ExecuteLoadCitiesCommand());
 
             LoadPickerCommand = new Command(async () => await LoadPickerCommandAsync());
-
-            //CityTapped = new Command<City>(OnCitieselected);
 
         }
 
@@ -57,6 +67,7 @@ namespace Picker.ViewModels
                             IsBusy = true;
             try
             {
+                SelectedCountryBtn = countrylist[result];
                 Cities.Clear();
                 var cities = await CityDataStore.GetCitiesAsync(true);
                 foreach (var city in cities)
@@ -105,14 +116,5 @@ namespace Picker.ViewModels
         {
             IsBusy = true;
         }
-
-        //async void OnCitieselected(City City)
-        //{
-        //    if (City == null)
-        //        return;
-
-        //    // This will push the CityDetailPage onto the navigation stack
-        //    // await Shell.Current.GoToAsync($"{nameof(CityDetailPage)}?{nameof(CityDetailViewModel.CityId)}={City.Id}");
-        //}
     }
 }
