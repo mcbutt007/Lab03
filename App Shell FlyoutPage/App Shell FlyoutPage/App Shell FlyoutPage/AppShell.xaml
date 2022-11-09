@@ -85,6 +85,9 @@
         <ShellContent Title="Laptop Macbook" Icon="icon_feed.png" Route="LaptopMacbookPage" ContentTemplate="{DataTemplate local:LaptopMacbookPage}" />
         <ShellContent Title="USB " Icon="icon_feed.png" Route="USBPage" ContentTemplate="{DataTemplate local:USBPage}" />
         <ShellContent Title="Headphone " Icon="icon_feed.png" Route="HeadphonePage" ContentTemplate="{DataTemplate local:HeadphonePage}" />
+        <ShellContent Title="SonySmartphone " Icon="icon_feed.png" Route="SonySmartphonePage" ContentTemplate="{DataTemplate local:SonySmartphonePage}" />
+        <ShellContent Title="SamsungSmartphone " Icon="icon_feed.png" Route="SamsungSmartphonePage" ContentTemplate="{DataTemplate local:SamsungSmartphonePage}" />
+        <ShellContent Title="Iphone " Icon="icon_feed.png" Route="IphonePage" ContentTemplate="{DataTemplate local:IphonePage}" />
         <ShellContent Title="About" Icon="icon_about.png" Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
         <ShellContent Title="Browse" Icon="icon_feed.png" Route="ItemsPage" ContentTemplate="{DataTemplate local:ItemsPage}" />
     </FlyoutItem>
