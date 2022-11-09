@@ -12,6 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\SamsungSmartphonePage.xaml.cs">
       <DependentUpon>SamsungSmartphonePage.xaml</DependentUpon>
     </Compile>

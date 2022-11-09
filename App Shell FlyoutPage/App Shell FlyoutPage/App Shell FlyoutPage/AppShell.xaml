@@ -79,20 +79,55 @@
         https://docs.microsoft.com/dotnet/api/xamarin.forms.shellgroupitem.flyoutdisplayoptions?view=xamarin-forms
     -->
 
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <Grid BackgroundColor="Black"
+                  HeightRequest="200">
+                <Image Aspect="AspectFill"
+                       Source="https://www.senviet.art/wp-content/uploads/edd/2021/12/dhuit.jpg"
+                       Opacity="0.4" />
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Orientation="Horizontal">
+                    <Frame CornerRadius="100" 
+           HeightRequest="80"
+           WidthRequest="80"
+           HorizontalOptions="Center"
+           Padding="0"
+           IsClippedToBounds="True">
+                        <Image Source="https://thispersondoesnotexist.com/image" 
+           HorizontalOptions="Center"
+           VerticalOptions="Center" />
+                    </Frame>
+                    <StackLayout>
+                        <Label Text="Random Avatar" FontSize="Medium" TextColor="Wheat"/>
+                        <Label Text="example@gmail.com" FontSize="Medium" TextColor="Wheat"/>
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Title="Laptop Gaming" Icon="icon_feed.png" Route="LaptopGamingPage" ContentTemplate="{DataTemplate local:LaptopGamingPage}" />
-        <ShellContent Title="Laptop Văn phòng" Icon="icon_feed.png" Route="LaptopOfficePage" ContentTemplate="{DataTemplate local:LaptopOfficePage}" />
-        <ShellContent Title="Laptop Macbook" Icon="icon_feed.png" Route="LaptopMacbookPage" ContentTemplate="{DataTemplate local:LaptopMacbookPage}" />
-        <ShellContent Title="USB " Icon="icon_feed.png" Route="USBPage" ContentTemplate="{DataTemplate local:USBPage}" />
-        <ShellContent Title="Headphone " Icon="icon_feed.png" Route="HeadphonePage" ContentTemplate="{DataTemplate local:HeadphonePage}" />
-        <ShellContent Title="SonySmartphone " Icon="icon_feed.png" Route="SonySmartphonePage" ContentTemplate="{DataTemplate local:SonySmartphonePage}" />
-        <ShellContent Title="SamsungSmartphone " Icon="icon_feed.png" Route="SamsungSmartphonePage" ContentTemplate="{DataTemplate local:SamsungSmartphonePage}" />
-        <ShellContent Title="Iphone " Icon="icon_feed.png" Route="IphonePage" ContentTemplate="{DataTemplate local:IphonePage}" />
-        <ShellContent Title="About" Icon="icon_about.png" Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
-        <ShellContent Title="Browse" Icon="icon_feed.png" Route="ItemsPage" ContentTemplate="{DataTemplate local:ItemsPage}" />
+        <Tab Title="Home" Icon="icon_home">
+            <ShellContent Title="Home" Route="HomePage" ContentTemplate="{DataTemplate local:HomePage}" />
+            <!--<ShellContent Title="Browse" Icon="icon_feed.png" Route="ItemsPage" ContentTemplate="{DataTemplate local:ItemsPage}" />-->
+        </Tab>
+        <Tab Title="Laptop" Icon="icon_laptop">
+            <ShellContent Title="Laptop Gaming" Route="LaptopGamingPage" ContentTemplate="{DataTemplate local:LaptopGamingPage}" />
+            <ShellContent Title="Laptop Văn phòng" Route="LaptopOfficePage" ContentTemplate="{DataTemplate local:LaptopOfficePage}" />
+            <ShellContent Title="Laptop Macbook" Route="LaptopMacbookPage" ContentTemplate="{DataTemplate local:LaptopMacbookPage}" />
+        </Tab>
+        <Tab Title="Smartphone" Icon="icon_phone">
+            <ShellContent Title="SonySmartphone" Route="SonySmartphonePage" ContentTemplate="{DataTemplate local:SonySmartphonePage}" />
+            <ShellContent Title="SamsungSmartphone " Route="SamsungSmartphonePage" ContentTemplate="{DataTemplate local:SamsungSmartphonePage}" />
+            <ShellContent Title="Iphone " Route="IphonePage" ContentTemplate="{DataTemplate local:IphonePage}" />
+        </Tab>
+        <Tab Title="Accessories" Icon="icon_accessories">
+            <ShellContent Title="USB" Route="USBPage" ContentTemplate="{DataTemplate local:USBPage}" />
+            <ShellContent Title="Headphone" Route="HeadphonePage" ContentTemplate="{DataTemplate local:HeadphonePage}" />
+        </Tab>
     </FlyoutItem>
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->
-    <MenuItem Text="Logout" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">
+    <MenuItem Text="About" IconImageSource="icon_about" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">
     </MenuItem>
 
     <!--
