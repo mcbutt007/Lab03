@@ -8,14 +8,14 @@ using Xamarin.Forms;
 
 namespace App_Shell_FlyoutPage.ViewModels
 {
-    public class LaptopGamingViewModel : BaseViewModel
+    public class LaptopOfficeViewModel : BaseViewModel
     {
         public ObservableCollection<Laptop> Laptops { get; }
         public Command LoadLaptopsCommand { get; }
 
-        public LaptopGamingViewModel()
+        public LaptopOfficeViewModel()
         {
-            Title = "Gaming Laptop";
+            Title = "Office Laptop";
             Laptops = new ObservableCollection<Laptop>();
             LoadLaptopsCommand = new Command(async () => await ExecuteLoadLaptopsCommand());
 
@@ -31,7 +31,7 @@ namespace App_Shell_FlyoutPage.ViewModels
                 var laptops = await LaptopDataStore.GetLaptopsAsync(true);
                 foreach (var laptop in laptops)
                 {
-                    if (laptop.LaptopType == "Gaming")
+                    if (laptop.LaptopType=="Office")
                         Laptops.Add(laptop);
                 }
             }
