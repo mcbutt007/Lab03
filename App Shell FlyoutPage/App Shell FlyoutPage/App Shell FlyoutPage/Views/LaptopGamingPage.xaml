@@ -4,7 +4,7 @@
              x:Class="App_Shell_FlyoutPage.Views.LaptopGamingPage"
              Title="{Binding Title}"
              xmlns:local="clr-namespace:App_Shell_FlyoutPage.ViewModels"  
-             xmlns:model="clr-namespace:App_Shell_FlyoutPage.Models"  
+             xmlns:model="clr-namespace:App_Shell_FlyoutPage.Models" xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
              x:Name="BrowseLaptopGamingPage">
 
     <!--
@@ -15,18 +15,30 @@
         <CollectionView x:Name="ItemsListView"
                 ItemsSource="{Binding Laptops}"
                 SelectionMode="None">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2" />
+            </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <StackLayout Padding="10" x:DataType="model:Laptop">
-                        <Label Text="{Binding LaptopID}" 
-                            LineBreakMode="NoWrap" 
-                            Style="{DynamicResource ListItemTextStyle}" 
-                            FontSize="16" />
-                        <Label Text="{Binding LaptopName}" 
-                            LineBreakMode="NoWrap"
-                            Style="{DynamicResource ListItemDetailTextStyle}"
+                    <material:MaterialCard Padding="10" x:DataType="model:Laptop" 
+                                           CornerRadius="2" Elevation="1" 
+                                           HeightRequest="180" HorizontalOptions="FillAndExpand"
+                                           IsClickable="True">
+                        <StackLayout>
+                            <Image Source="{Binding LaptopImage}" HeightRequest="100" Aspect="AspectFill"/>
+                            <Label Text="{Binding LaptopName}" 
                             FontSize="13" />
-                    </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding LaptopRatings}"/>
+                                <material:MaterialIcon WidthRequest="20" HeightRequest="20" Source="icon_star" TintColor="Gold"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding LaptopPrice}"/>
+                                <material:MaterialIcon WidthRequest="20" HeightRequest="20" Source="icon_favorite" TintColor="Red"/>
+                                <material:MaterialIcon WidthRequest="20" HeightRequest="20" Source="icon_add"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </material:MaterialCard>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
