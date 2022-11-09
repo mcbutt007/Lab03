@@ -194,7 +194,7 @@ namespace App_Shell_FlyoutPage.Services
                 new Accessory { AccessoryID = Guid.NewGuid().ToString(), AccessoryName = "Lenovo TH10", 
                 AccessoryImage="https://cf.shopee.vn/file/sg-11134202-22100-hdn6gh202viv8e",
                 AccessoryRatings="3.5", AccessoryPrice="2.600.000 VND", AccessoryType="Headphone"},
-                new Accessory { AccessoryID = Guid.NewGuid().ToString(), AccessoryName = "SanDisk Cruzer Glide CZ600",
+                new Accessory { AccessoryID = Guid.NewGuid().ToString(), AccessoryName = "SanDisk Cruzer Glide",
                 AccessoryImage="https://bizweb.sapocdn.net/thumb/1024x1024/100/329/122/products/cz600-01-5070df8a-e72a-45f1-91da-33357c56b998-e70ca42c-779c-41ec-b10d-455cc2915a3a.jpg",
                 AccessoryRatings="4.5", AccessoryPrice="250.000 VND", AccessoryType="USB"},
                 new Accessory { AccessoryID = Guid.NewGuid().ToString(), AccessoryName = "Generic Headphone",
