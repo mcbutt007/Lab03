@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XF.Material.Forms.UI.Dialogs;
 
 namespace TabBarPage.Views
 {
@@ -27,6 +28,12 @@ namespace TabBarPage.Views
         {
             base.OnAppearing();
             _viewModel.OnAppearing();
+        }
+        private void SwipeItem_Invoked(object sender, EventArgs e)
+        {
+            MaterialDialog.Instance.ConfirmAsync(message: "Do you want to delete it?",
+                                    confirmingText: "Yes",
+                                    dismissiveText: "No");
         }
     }
 }

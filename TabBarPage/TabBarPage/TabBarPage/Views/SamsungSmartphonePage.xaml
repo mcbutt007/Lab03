@@ -26,9 +26,9 @@
                                 <SwipeItem Text="Delete"
                        IconImageSource="icon_delete.png"
                        BackgroundColor="LightPink"
-                        />
+                       Invoked="SwipeItem_Invoked"/>
                                 <SwipeItem Text="Buy Now"
-                       IconImageSource="icon_shopping.png"
+                       IconImageSource="icon_favorite.png"
                        BackgroundColor="LightGreen"
                         />
                             </SwipeItems>

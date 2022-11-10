@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using XF.Material.Forms.UI.Dialogs;
 
 namespace TabBarPage.ViewModels
 {
@@ -13,17 +14,11 @@ namespace TabBarPage.ViewModels
         public ObservableCollection<Smartphone> Smartphones { get; }
         public Command LoadSmartphonesCommand { get; }
         public Command DeleteCommand { get; }
-        public Command FavoriteCommand { get; }
-        public Command ShareCommand { get; }
-
         public SamsungSmartphoneViewModel()
         {
             Title = "Samsung Smartphone";
             Smartphones = new ObservableCollection<Smartphone>();
             LoadSmartphonesCommand = new Command(async () => await ExecuteLoadSmartphonesCommand());
-            DeleteCommand = new Command(async () => await App.Current.MainPage.DisplayAlert("Alert","Delete","OK"));
-            FavoriteCommand = new Command(async () => await App.Current.MainPage.DisplayAlert("Alert", "Favorite", "OK"));
-            ShareCommand = new Command(async () => await App.Current.MainPage.DisplayAlert("Alert", "Share", "OK"));
         }
 
         async Task ExecuteLoadSmartphonesCommand()
