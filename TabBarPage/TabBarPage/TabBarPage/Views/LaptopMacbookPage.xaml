@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TabBarPage.Views.LaptopMacbookPage"
+             Title="{Binding Title}"
+             xmlns:local="clr-namespace:TabBarPage.ViewModels"  
+             xmlns:model="clr-namespace:TabBarPage.Models" xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             x:Name="BrowseLaptopMacbookPage">
+
+    <!--
+      x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
+      https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
+    -->
+    <RefreshView x:DataType="local:LaptopMacbookViewModel" Command="{Binding LoadLaptopsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+        <CollectionView x:Name="ItemsListView"
+                ItemsSource="{Binding Laptops}"
+                SelectionMode="None">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <material:MaterialCard Padding="10" x:DataType="model:Laptop" 
+                                           CornerRadius="2" Elevation="1" 
+                                           HeightRequest="180" HorizontalOptions="FillAndExpand"
+                                           IsClickable="True">
+                        <StackLayout>
+                            <Image Source="{Binding LaptopImage}" HeightRequest="100" Aspect="AspectFill"/>
+                            <Label Text="{Binding LaptopName}" 
+                            FontSize="13" />
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding LaptopRatings}"/>
+                                <material:MaterialIcon WidthRequest="20" HeightRequest="20" Source="icon_star" TintColor="Gold"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding LaptopPrice}"/>
+                                <material:MaterialIcon WidthRequest="20" HeightRequest="20" Source="icon_favorite" TintColor="Red"/>
+                                <material:MaterialIcon WidthRequest="20" HeightRequest="20" Source="icon_add"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </material:MaterialCard>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </RefreshView>
+</ContentPage>

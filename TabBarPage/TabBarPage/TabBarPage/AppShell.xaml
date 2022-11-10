@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:TabBarPage.Views"
+       Title="TabBarPage"
+       x:Class="TabBarPage.AppShell">
+
+    <!--
+        The overall app visual hierarchy is defined here, along with navigation.
+    
+        https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/
+    -->
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.ForegroundColor" Value="White" />
+                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
+            </Style>
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <TabBar>
+        <ShellContent Icon="icon_home" Title="Home" Route="HomePage" ContentTemplate="{DataTemplate local:HomePage}" />
+        <Tab Title="Laptop" Icon="icon_laptop">
+            <ShellContent Title="Laptop Gaming" Route="LaptopGamingPage" ContentTemplate="{DataTemplate local:LaptopGamingPage}" />
+            <ShellContent Title="Laptop Văn phòng" Route="LaptopOfficePage" ContentTemplate="{DataTemplate local:LaptopOfficePage}" />
+            <ShellContent Title="Laptop Macbook" Route="LaptopMacbookPage" ContentTemplate="{DataTemplate local:LaptopMacbookPage}" />
+        </Tab>
+        <Tab Title="Smartphone" Icon="icon_phone">
+            <ShellContent Title="SonySmartphone" Route="SonySmartphonePage" ContentTemplate="{DataTemplate local:SonySmartphonePage}" />
+            <ShellContent Title="SamsungSmartphone " Route="SamsungSmartphonePage" ContentTemplate="{DataTemplate local:SamsungSmartphonePage}" />
+            <ShellContent Title="Iphone " Route="IphonePage" ContentTemplate="{DataTemplate local:IphonePage}" />
+        </Tab>
+        <Tab Title="Accessories" Icon="icon_accessories">
+            <ShellContent Title="USB" Route="USBPage" ContentTemplate="{DataTemplate local:USBPage}" />
+            <ShellContent Title="Headphone" Route="HeadphonePage" ContentTemplate="{DataTemplate local:HeadphonePage}" />
+        </Tab>
+        <ShellContent Icon="icon_about" Title="About" Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
+    </TabBar>
+
+    <!--
+        If you would like to navigate to this content you can do so by calling
+        await Shell.Current.GoToAsync("//LoginPage");
+    -->
+    <TabBar>
+        <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
+    </TabBar>
+
+
+</Shell>
